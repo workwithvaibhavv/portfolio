@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import { nitro } from "nitro/vite";
 import { resolve } from "path";
 
 export default defineConfig({
@@ -15,6 +16,9 @@ export default defineConfig({
         },
       },
       server: { entry: "server" },
+    }),
+    nitro({
+      preset: "netlify",
     }),
     tailwindcss(),
     react(),
